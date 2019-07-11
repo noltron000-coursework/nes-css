@@ -149,20 +149,62 @@ img {
 	margin-left: 960px;
 }
 
-.button.circle {
+
+.button.circle.base {
 	margin-top: calc(190px + 250px - 15px);
+	width: 110px;
+	height: 110px;
+	background: darkred;
+	border-radius: 50%;
+}
+
+.button.circle.base.a,
+.button.circle.shaft.a,
+.button.circle.face.a {
+	margin-left: 815px;
+}
+
+.button.circle.base.b,
+.button.circle.shaft.b,
+.button.circle.face.b {
+	margin-left: 965px;
+}
+
+.button.circle.shaft {
+	margin-top: calc(190px + 250px - 15px + 30px);
+	width: 110px;
+	height: 25px;
+	background: darkred;
+}
+
+.button.circle.face {
+	margin-top: calc(190px + 250px - 15px - 25px);
 	width: 110px;
 	height: 110px;
 	background: firebrick;
 	border-radius: 50%;
 }
 
-.button.circle.a {
-	margin-left: 815px;
+.button.circle.parent > * {
+	transition: 100ms;
 }
 
-.button.circle.b {
-	margin-left: 965px;
+.button.circle.parent.a:active > .shaft {
+	margin-top: calc(190px + 250px - 15px + 30px + 20px);
+	height: calc(25px - 20px);
+}
+
+.button.circle.parent.a:active > .face {
+	margin-top: calc(190px + 250px - 15px - 25px + 20px);
+}
+
+.button.circle.parent.b:active > .shaft {
+	margin-top: calc(190px + 250px - 15px + 30px + 20px);
+	height: calc(25px - 20px);
+}
+
+.button.circle.parent.b:active > .face {
+	margin-top: calc(190px + 250px - 15px - 25px + 20px);
 }
 
 .text {
