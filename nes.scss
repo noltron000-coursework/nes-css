@@ -1,0 +1,316 @@
+@import url('https://fonts.googleapis.com/css?family=Days+One&display=swap');
+
+
+// shape sizes
+$cord-radius: 50px;
+
+$gamepad-body-length: 50px;
+$gamepad-body-width: 50px;
+$gamepad-body-height: 50px;
+
+$gamepad-face-padding: 50px;
+$gamepad-face-padding-top: 50px;
+
+$button-length: 50px;
+$button-width: 50px;
+$button-height: 50px;
+$button-height-active: 5px;
+
+$dpad-length: 50px;
+$dpad-width: 50px;
+$dpad-height: $button-height;
+$dpad-height-active: $button-height-active;
+
+$squish-length: 50px;
+$squish-width: 50px;
+$squish-height: $button-height;
+$squish-height-active: $button-height-active;
+
+// color themes
+$dark: #222;
+
+.cord {
+	background-color: $dark;
+	width: $cord-radius;
+}
+
+.gamepad-body {
+	width: $gamepad-body-length;
+	height: $gamepad-body-width;
+	box-shadow: 0px $gamepad-body-height 0px 0px #222;
+}
+
+.gamepad-face {
+	width: $gamepad-length - 2*$gamepad-face-padding;
+	height: $gamepad-length - $gamepad-face-padding - $gamepad-face-padding-top;
+}
+
+.button {
+	
+}
+
+.dpad {
+	
+}
+
+.squish {
+	
+}
+
+body {
+	padding: 5%;
+	background: cornflowerblue;
+}
+
+img {
+	margin-top: -3%;
+	margin-left: 65%;
+	width: 180px;
+}
+
+#container * {
+	position: absolute;
+}
+
+.controller {
+	margin-top: 140px;
+	width: 1200px;
+	height: 500px;
+	background: lightgrey;
+	border-radius: 10px;
+}
+
+.bottom {
+	margin-top: 620px; 
+	width: 1200px;
+	height: 80px;
+	background: darkgrey;
+	border-radius: 10px;
+}
+
+.cord {
+	margin-top: -200px;
+	margin-left: 300px;
+	width: 36px;
+	height: 340px;
+	background: #222;
+}
+
+.face {
+	margin-left: 20px;
+	margin-top: 180px;
+	width: 1160px;
+	height: 440px;
+	background: #505050;
+	border-radius: 20px;
+}
+
+.inlay.dpad.wide {
+	margin-left: calc(20px + 100px - 40px);
+	margin-top: calc(460px - 100px + 80px - 40px);
+	width: 240px;
+	height: 80px;
+	background: lightgrey;
+	border-radius: 10px;
+}
+
+.inlay.dpad.tall {
+	margin-left: calc(20px + 100px + 80px - 40px);
+	margin-top: calc(460px - 100px - 40px);
+	width: 80px;
+	height: 240px;
+	background: lightgrey;
+	border-radius: 10px;
+}
+
+.button.dpad.wide {
+	margin-left: calc(20px + 100px + 5px - 40px);
+	margin-top: calc(460px - 90px + 75px - 40px);
+	width: 230px;
+	height: 70px;
+	background: #222;
+	border-radius: 2.5px;
+}
+
+.button.dpad.tall {
+	margin-left: calc(20px + 110px + 75px - 40px);
+	margin-top: calc(460px - 100px + 5px - 40px);
+	width: 70px;
+	height: 230px;
+	background: #222;
+	border-radius: 2.5px;
+}
+
+.flourish.a {
+	margin-left: 380px;
+	margin-top: calc(180px + 10px);
+	width: 360px;
+	height: 70px;
+	background: #908888;
+	border-radius: 20px;
+}
+
+.flourish.b {
+	margin-left: 380px;
+	margin-top: calc(180px + 90px);
+	width: 360px;
+	height: 70px;
+	background: #908888;
+	border-radius: 20px;
+}
+
+.flourish.c {
+	margin-left: 380px;
+	margin-top: calc(180px + 170px);
+	width: 360px;
+	height: 70px;
+	background: #908888;
+	border-radius: 20px;
+}
+
+.flourish.d {
+	margin-left: 380px;
+	margin-top: calc(180px + 360px);
+	width: 360px;
+	height: 70px;
+	background: #908888;
+	border-radius: 20px;
+}
+
+.inlay.menu {
+	margin-left: 390px;
+	margin-top: calc(180px + 250px);
+	width: 340px;
+	height: 100px;
+	background: lightgrey;
+	border-radius: 5px;
+}
+
+.logo {
+	color: firebrick;
+}
+
+.inlay.circle {
+	margin-top: calc(190px + 250px - 20px);
+	width: 120px;
+	height: 120px;
+	background: lightgrey;
+	border-radius: 5px;
+}
+
+.inlay.circle.a {
+	margin-left: 810px;
+}
+
+.inlay.circle.b {
+	margin-left: 960px;
+}
+
+
+.button.circle.base {
+	margin-top: calc(190px + 250px - 15px);
+	width: 110px;
+	height: 110px;
+	background: darkred;
+	border-radius: 50%;
+}
+
+.button.circle.base.a,
+.button.circle.shaft.a,
+.button.circle.face.a {
+	margin-left: 815px;
+}
+
+.button.circle.base.b,
+.button.circle.shaft.b,
+.button.circle.face.b {
+	margin-left: 965px;
+}
+
+.button.circle.shaft {
+	margin-top: calc(190px + 250px - 15px + 30px);
+	width: 110px;
+	height: 25px;
+	background: darkred;
+}
+
+.button.circle.face {
+	margin-top: calc(190px + 250px - 15px - 25px);
+	width: 110px;
+	height: 110px;
+	background: firebrick;
+	border-radius: 50%;
+}
+
+.button.circle.parent > * {
+	transition: 100ms;
+}
+
+.button.circle.parent.a:active > .shaft {
+	margin-top: calc(190px + 250px - 15px + 30px + 20px);
+	height: calc(25px - 20px);
+}
+
+.button.circle.parent.a:active > .face {
+	margin-top: calc(190px + 250px - 15px - 25px + 20px);
+}
+
+.button.circle.parent.b:active > .shaft {
+	margin-top: calc(190px + 250px - 15px + 30px + 20px);
+	height: calc(25px - 20px);
+}
+
+.button.circle.parent.b:active > .face {
+	margin-top: calc(190px + 250px - 15px - 25px + 20px);
+}
+
+.text {
+	font-size: 42px;
+	color: firebrick;
+	font-family: 'Days One', sans-serif;
+}
+
+.button.text {
+	margin-top: 120px;
+}
+
+.menu.text {
+	margin-top: calc(180px + 170px + 15px);
+	margin-left: 390px;
+	font-size: 36px;
+}
+
+.menu.text.start {
+	margin-left: 390px;
+	text-align: left;
+}
+
+.menu.text.select {
+	margin-left: calc(390px + 175px);
+	text-align: right;
+}
+
+.button.squish {
+	margin-top: calc(190px + 250px + 25px);
+	width: 110px;
+	height: 30px;
+	background: #222;
+	border-radius: 15px;
+}
+
+.button.squish.start {
+	margin-left: calc(420px);
+}
+
+.button.squish.select {
+	margin-left: calc(420px + 170px);
+}
+
+.logo.text {
+	margin-top: 240px;
+	margin-left: 840px;
+}
+
+small {
+	font-size: 26px;
+}
