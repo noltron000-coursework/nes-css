@@ -4,313 +4,378 @@
 // shape sizes
 $cord-radius: 50px;
 
-$gamepad-body-length: 50px;
-$gamepad-body-width: 50px;
-$gamepad-body-height: 50px;
+$gamepad-body-width: 1000px;
+$gamepad-body-height: 500px;
+$gamepad-body-depth: 50px;
+$gamepad-body-padding-top: 240px;
+$gamepad-body-padding-left: 80px;
 
 $gamepad-face-padding: 50px;
-$gamepad-face-padding-top: 50px;
+$gamepad-face-padding-top: 80px;
 
-$button-length: 50px;
+$cord-height: $gamepad-body-padding-top;
+$cord-radius: 40px;
+$cord-padding-left: 240px;
+
 $button-width: 50px;
 $button-height: 50px;
-$button-height-active: 5px;
+$button-depth: 50px;
+$button-depth-active: 5px;
 
-$dpad-length: 50px;
 $dpad-width: 50px;
-$dpad-height: $button-height;
-$dpad-height-active: $button-height-active;
+$dpad-height: 50px;
+$dpad-depth: $button-depth;
+$dpad-depth-active: $button-depth-active;
 
-$squish-length: 50px;
 $squish-width: 50px;
-$squish-height: $button-height;
-$squish-height-active: $button-height-active;
+$squish-height: 50px;
+$squish-depth: $button-depth;
+$squish-depth-active: $button-depth-active;
 
-// color themes
-$dark: #222;
+// color theme
+$side-grey: #AFA9B5;
+$base-grey: #D8D7DC;
+$face-grey: #464646;
+$fili-grey: #93948F;
+
+$side-red: #982D29;
+$base-red: #CE4A43;
+
+$game-sky: #6F7CB1;
+$dark: #212121;
+
+#gamepad * {
+	position: absolute;
+	opacity: 0.5;
+}
 
 .cord {
-	background-color: $dark;
+	// set dimensions first
 	width: $cord-radius;
+	height: $cord-height;
+	// set location
+	left: $cord-padding-left + $gamepad-body-padding-left;
+	// set colors
+	background-color: $dark;
 }
 
 .gamepad-body {
-	width: $gamepad-body-length;
-	height: $gamepad-body-width;
-	box-shadow: 0px $gamepad-body-height 0px 0px #222;
-}
-
-.gamepad-face {
-	width: $gamepad-length - 2*$gamepad-face-padding;
-	height: $gamepad-length - $gamepad-face-padding - $gamepad-face-padding-top;
-}
-
-.button {
-	
-}
-
-.dpad {
-	
-}
-
-.squish {
-	
-}
-
-body {
-	padding: 5%;
-	background: cornflowerblue;
-}
-
-img {
-	margin-top: -3%;
-	margin-left: 65%;
-	width: 180px;
-}
-
-#container * {
+	// set dimensions first
+	width: $gamepad-body-width;
+	height: $gamepad-body-height;
+	// set location
+	top: $gamepad-body-padding-top;
+	left: $gamepad-body-padding-left;
+	// set colors
+	background-color: $base-grey;
+	// this one has children
 	position: absolute;
 }
 
-.controller {
-	margin-top: 140px;
-	width: 1200px;
-	height: 500px;
-	background: lightgrey;
-	border-radius: 10px;
+.gamepad-face {
+	// set dimensions first
+	// calculate face dimensions by body plus padding
+	width: $gamepad-body-width - (2 * $gamepad-face-padding);
+	height: $gamepad-body-height - ($gamepad-face-padding + $gamepad-face-padding-top);
+	// set location
+	top: $gamepad-face-padding-top;
+	left: $gamepad-face-padding;
+	// set colors
+	background-color: $face-grey;
 }
 
-.bottom {
-	margin-top: 620px; 
-	width: 1200px;
-	height: 80px;
-	background: darkgrey;
-	border-radius: 10px;
+.button {
+	// set dimensions first
+	width: $button-width;
+	height: $button-height;
 }
 
-.cord {
-	margin-top: -200px;
-	margin-left: 300px;
-	width: 36px;
-	height: 340px;
-	background: #222;
+.squish {
+	// set dimensions first
+	width: $squish-width;
+	height: $squish-height;
 }
 
-.face {
-	margin-left: 20px;
-	margin-top: 180px;
-	width: 1160px;
-	height: 440px;
-	background: #505050;
-	border-radius: 20px;
+.dpad {
+	// set dimensions first
+	width: $dpad-width;
+	height: $dpad-height;
 }
 
-.inlay.dpad.wide {
-	margin-left: calc(20px + 100px - 40px);
-	margin-top: calc(460px - 100px + 80px - 40px);
-	width: 240px;
-	height: 80px;
-	background: lightgrey;
-	border-radius: 10px;
+.gamepad-body.depth {
+	// set dimensions first
+	height: $gamepad-body-height + $gamepad-body-depth;
 }
 
-.inlay.dpad.tall {
-	margin-left: calc(20px + 100px + 80px - 40px);
-	margin-top: calc(460px - 100px - 40px);
-	width: 80px;
-	height: 240px;
-	background: lightgrey;
-	border-radius: 10px;
+.button.depth {
+	// set dimensions first
+	height: $button-height + $button-depth;
 }
 
-.button.dpad.wide {
-	margin-left: calc(20px + 100px + 5px - 40px);
-	margin-top: calc(460px - 90px + 75px - 40px);
-	width: 230px;
-	height: 70px;
-	background: #222;
-	border-radius: 2.5px;
+.squish.depth {
+	// set dimensions first
+	height: $squish-height + $squish-depth;
 }
 
-.button.dpad.tall {
-	margin-left: calc(20px + 110px + 75px - 40px);
-	margin-top: calc(460px - 100px + 5px - 40px);
-	width: 70px;
-	height: 230px;
-	background: #222;
-	border-radius: 2.5px;
+.dpad.depth {
+	// set dimensions first
+	--dpad-depth-u: $dpad-depth;
+	--dpad-depth-d: $dpad-depth;
+	--dpad-depth-l: $dpad-depth;
+	--dpad-depth-r: $dpad-depth;
+	height: $dpad-depth;
 }
 
-.flourish.a {
-	margin-left: 380px;
-	margin-top: calc(180px + 10px);
-	width: 360px;
-	height: 70px;
-	background: #908888;
-	border-radius: 20px;
+html,
+body {
+	padding: 0;
+	margin: 0;
+	background: $game-sky
 }
 
-.flourish.b {
-	margin-left: 380px;
-	margin-top: calc(180px + 90px);
-	width: 360px;
-	height: 70px;
-	background: #908888;
-	border-radius: 20px;
-}
+// #container * {
+// 	position: absolute;
+// }
 
-.flourish.c {
-	margin-left: 380px;
-	margin-top: calc(180px + 170px);
-	width: 360px;
-	height: 70px;
-	background: #908888;
-	border-radius: 20px;
-}
+// .controller {
+// 	margin-top: 140px;
+// 	width: 1200px;
+// 	height: 500px;
+// 	background: lightgrey;
+// 	border-radius: 10px;
+// }
 
-.flourish.d {
-	margin-left: 380px;
-	margin-top: calc(180px + 360px);
-	width: 360px;
-	height: 70px;
-	background: #908888;
-	border-radius: 20px;
-}
+// .bottom {
+// 	margin-top: 620px; 
+// 	width: 1200px;
+// 	height: 80px;
+// 	background: darkgrey;
+// 	border-radius: 10px;
+// }
 
-.inlay.menu {
-	margin-left: 390px;
-	margin-top: calc(180px + 250px);
-	width: 340px;
-	height: 100px;
-	background: lightgrey;
-	border-radius: 5px;
-}
+// .cord {
+// 	margin-top: -200px;
+// 	margin-left: 300px;
+// 	width: 36px;
+// 	height: 340px;
+// 	background: #222;
+// }
 
-.logo {
-	color: firebrick;
-}
+// .face {
+// 	margin-left: 20px;
+// 	margin-top: 180px;
+// 	width: 1160px;
+// 	height: 440px;
+// 	background: #505050;
+// 	border-radius: 20px;
+// }
 
-.inlay.circle {
-	margin-top: calc(190px + 250px - 20px);
-	width: 120px;
-	height: 120px;
-	background: lightgrey;
-	border-radius: 5px;
-}
+// .inlay.dpad.wide {
+// 	margin-left: calc(20px + 100px - 40px);
+// 	margin-top: calc(460px - 100px + 80px - 40px);
+// 	width: 240px;
+// 	height: 80px;
+// 	background: lightgrey;
+// 	border-radius: 10px;
+// }
 
-.inlay.circle.a {
-	margin-left: 810px;
-}
+// .inlay.dpad.tall {
+// 	margin-left: calc(20px + 100px + 80px - 40px);
+// 	margin-top: calc(460px - 100px - 40px);
+// 	width: 80px;
+// 	height: 240px;
+// 	background: lightgrey;
+// 	border-radius: 10px;
+// }
 
-.inlay.circle.b {
-	margin-left: 960px;
-}
+// .button.dpad.wide {
+// 	margin-left: calc(20px + 100px + 5px - 40px);
+// 	margin-top: calc(460px - 90px + 75px - 40px);
+// 	width: 230px;
+// 	height: 70px;
+// 	background: #222;
+// 	border-radius: 2.5px;
+// }
+
+// .button.dpad.tall {
+// 	margin-left: calc(20px + 110px + 75px - 40px);
+// 	margin-top: calc(460px - 100px + 5px - 40px);
+// 	width: 70px;
+// 	height: 230px;
+// 	background: #222;
+// 	border-radius: 2.5px;
+// }
+
+// .flourish.a {
+// 	margin-left: 380px;
+// 	margin-top: calc(180px + 10px);
+// 	width: 360px;
+// 	height: 70px;
+// 	background: #908888;
+// 	border-radius: 20px;
+// }
+
+// .flourish.b {
+// 	margin-left: 380px;
+// 	margin-top: calc(180px + 90px);
+// 	width: 360px;
+// 	height: 70px;
+// 	background: #908888;
+// 	border-radius: 20px;
+// }
+
+// .flourish.c {
+// 	margin-left: 380px;
+// 	margin-top: calc(180px + 170px);
+// 	width: 360px;
+// 	height: 70px;
+// 	background: #908888;
+// 	border-radius: 20px;
+// }
+
+// .flourish.d {
+// 	margin-left: 380px;
+// 	margin-top: calc(180px + 360px);
+// 	width: 360px;
+// 	height: 70px;
+// 	background: #908888;
+// 	border-radius: 20px;
+// }
+
+// .inlay.menu {
+// 	margin-left: 390px;
+// 	margin-top: calc(180px + 250px);
+// 	width: 340px;
+// 	height: 100px;
+// 	background: lightgrey;
+// 	border-radius: 5px;
+// }
+
+// .logo {
+// 	color: firebrick;
+// }
+
+// .inlay.circle {
+// 	margin-top: calc(190px + 250px - 20px);
+// 	width: 120px;
+// 	height: 120px;
+// 	background: lightgrey;
+// 	border-radius: 5px;
+// }
+
+// .inlay.circle.a {
+// 	margin-left: 810px;
+// }
+
+// .inlay.circle.b {
+// 	margin-left: 960px;
+// }
 
 
-.button.circle.base {
-	margin-top: calc(190px + 250px - 15px);
-	width: 110px;
-	height: 110px;
-	background: darkred;
-	border-radius: 50%;
-}
+// .button.circle.base {
+// 	margin-top: calc(190px + 250px - 15px);
+// 	width: 110px;
+// 	height: 110px;
+// 	background: darkred;
+// 	border-radius: 50%;
+// }
 
-.button.circle.base.a,
-.button.circle.shaft.a,
-.button.circle.face.a {
-	margin-left: 815px;
-}
+// .button.circle.base.a,
+// .button.circle.shaft.a,
+// .button.circle.face.a {
+// 	margin-left: 815px;
+// }
 
-.button.circle.base.b,
-.button.circle.shaft.b,
-.button.circle.face.b {
-	margin-left: 965px;
-}
+// .button.circle.base.b,
+// .button.circle.shaft.b,
+// .button.circle.face.b {
+// 	margin-left: 965px;
+// }
 
-.button.circle.shaft {
-	margin-top: calc(190px + 250px - 15px + 30px);
-	width: 110px;
-	height: 25px;
-	background: darkred;
-}
+// .button.circle.shaft {
+// 	margin-top: calc(190px + 250px - 15px + 30px);
+// 	width: 110px;
+// 	height: 25px;
+// 	background: darkred;
+// }
 
-.button.circle.face {
-	margin-top: calc(190px + 250px - 15px - 25px);
-	width: 110px;
-	height: 110px;
-	background: firebrick;
-	border-radius: 50%;
-}
+// .button.circle.face {
+// 	margin-top: calc(190px + 250px - 15px - 25px);
+// 	width: 110px;
+// 	height: 110px;
+// 	background: firebrick;
+// 	border-radius: 50%;
+// }
 
-.button.circle.parent > * {
-	transition: 100ms;
-}
+// .button.circle.parent > * {
+// 	transition: 100ms;
+// }
 
-.button.circle.parent.a:active > .shaft {
-	margin-top: calc(190px + 250px - 15px + 30px + 20px);
-	height: calc(25px - 20px);
-}
+// .button.circle.parent.a:active > .shaft {
+// 	margin-top: calc(190px + 250px - 15px + 30px + 20px);
+// 	height: calc(25px - 20px);
+// }
 
-.button.circle.parent.a:active > .face {
-	margin-top: calc(190px + 250px - 15px - 25px + 20px);
-}
+// .button.circle.parent.a:active > .face {
+// 	margin-top: calc(190px + 250px - 15px - 25px + 20px);
+// }
 
-.button.circle.parent.b:active > .shaft {
-	margin-top: calc(190px + 250px - 15px + 30px + 20px);
-	height: calc(25px - 20px);
-}
+// .button.circle.parent.b:active > .shaft {
+// 	margin-top: calc(190px + 250px - 15px + 30px + 20px);
+// 	height: calc(25px - 20px);
+// }
 
-.button.circle.parent.b:active > .face {
-	margin-top: calc(190px + 250px - 15px - 25px + 20px);
-}
+// .button.circle.parent.b:active > .face {
+// 	margin-top: calc(190px + 250px - 15px - 25px + 20px);
+// }
 
-.text {
-	font-size: 42px;
-	color: firebrick;
-	font-family: 'Days One', sans-serif;
-}
+// .text {
+// 	font-size: 42px;
+// 	color: firebrick;
+// 	font-family: 'Days One', sans-serif;
+// }
 
-.button.text {
-	margin-top: 120px;
-}
+// .button.text {
+// 	margin-top: 120px;
+// }
 
-.menu.text {
-	margin-top: calc(180px + 170px + 15px);
-	margin-left: 390px;
-	font-size: 36px;
-}
+// .menu.text {
+// 	margin-top: calc(180px + 170px + 15px);
+// 	margin-left: 390px;
+// 	font-size: 36px;
+// }
 
-.menu.text.start {
-	margin-left: 390px;
-	text-align: left;
-}
+// .menu.text.start {
+// 	margin-left: 390px;
+// 	text-align: left;
+// }
 
-.menu.text.select {
-	margin-left: calc(390px + 175px);
-	text-align: right;
-}
+// .menu.text.select {
+// 	margin-left: calc(390px + 175px);
+// 	text-align: right;
+// }
 
-.button.squish {
-	margin-top: calc(190px + 250px + 25px);
-	width: 110px;
-	height: 30px;
-	background: #222;
-	border-radius: 15px;
-}
+// .button.squish {
+// 	margin-top: calc(190px + 250px + 25px);
+// 	width: 110px;
+// 	height: 30px;
+// 	background: #222;
+// 	border-radius: 15px;
+// }
 
-.button.squish.start {
-	margin-left: calc(420px);
-}
+// .button.squish.start {
+// 	margin-left: calc(420px);
+// }
 
-.button.squish.select {
-	margin-left: calc(420px + 170px);
-}
+// .button.squish.select {
+// 	margin-left: calc(420px + 170px);
+// }
 
-.logo.text {
-	margin-top: 240px;
-	margin-left: 840px;
-}
+// .logo.text {
+// 	margin-top: 240px;
+// 	margin-left: 840px;
+// }
 
-small {
-	font-size: 26px;
-}
+// small {
+// 	font-size: 26px;
+// }

@@ -1,17 +1,60 @@
-/* Error: Undefined variable.
- *    ,
- * 44 |     width: $gamepad-length - 2*$gamepad-face-padding;
- *    |            ^^^^^^^^^^^^^^^
- *    '
- *   nes.scss 44:9  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Undefined variable.\a    \2577 \a 44 \2502      width: $gamepad-length - 2*$gamepad-face-padding;\a    \2502             ^^^^^^^^^^^^^^^\a    \2575 \a   nes.scss 44:9  root stylesheet";
+@import url("https://fonts.googleapis.com/css?family=Days+One&display=swap");
+#gamepad * {
+	position: absolute;
+	opacity: 0.5;
+}
+.cord {
+	width: 40px;
+	height: 240px;
+	left: 320px;
+	background-color: #212121;
+}
+.gamepad-body {
+	width: 1000px;
+	height: 500px;
+	top: 240px;
+	left: 80px;
+	background-color: #d8d7dc;
+	position: absolute;
+}
+.gamepad-face {
+	width: 900px;
+	height: 370px;
+	top: 80px;
+	left: 50px;
+	background-color: #464646;
+}
+.button {
+	width: 50px;
+	height: 50px;
+}
+.squish {
+	width: 50px;
+	height: 50px;
+}
+.dpad {
+	width: 50px;
+	height: 50px;
+}
+.gamepad-body.depth {
+	height: 550px;
+}
+.button.depth {
+	height: 100px;
+}
+.squish.depth {
+	height: 100px;
+}
+.dpad.depth {
+	--dpad-depth-u: 50px;
+	--dpad-depth-d: 50px;
+	--dpad-depth-l: 50px;
+	--dpad-depth-r: 50px;
+	height: 50px;
+}
+html,
+body {
+	padding: 0;
+	margin: 0;
+	background: #6f7cb1;
 }
