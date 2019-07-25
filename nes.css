@@ -1,60 +1,126 @@
 @import url("https://fonts.googleapis.com/css?family=Days+One&display=swap");
 #gamepad * {
-	position: absolute;
-	opacity: 0.5;
+  position: absolute;
 }
+
 .cord {
-	width: 40px;
-	height: 240px;
-	left: 320px;
-	background-color: #212121;
+  width: 40px;
+  height: 240px;
+  left: 320px;
+  background-color: #212121;
 }
+
 .gamepad-body {
-	width: 1000px;
-	height: 500px;
-	top: 240px;
-	left: 80px;
-	background-color: #d8d7dc;
-	position: absolute;
+  width: 1200px;
+  height: 500px;
+  left: 80px;
+  top: 240px;
+  background-color: #D8D7DC;
+  position: absolute;
 }
+
 .gamepad-face {
-	width: 900px;
-	height: 370px;
-	top: 80px;
-	left: 50px;
-	background-color: #464646;
+  width: 1100px;
+  height: 370px;
+  left: 50px;
+  top: 80px;
+  background-color: #464646;
 }
+
 .button {
-	width: 50px;
-	height: 50px;
+  width: 100px;
+  height: 100px;
+  top: 155px;
+  background-color: #CE4A43;
 }
-.squish {
-	width: 50px;
-	height: 50px;
+
+.button.a {
+  left: 700px;
 }
-.dpad {
-	width: 50px;
-	height: 50px;
+
+.button.b {
+  left: 900px;
 }
-.gamepad-body.depth {
-	height: 550px;
-}
+
 .button.depth {
-	height: 100px;
+  height: 120px;
+  background-color: #982D29;
 }
-.squish.depth {
-	height: 100px;
+
+.menu {
+  width: 80px;
+  height: 20px;
+  top: 155px;
+  background-color: #212121;
 }
+
+.menu.start {
+  left: 400px;
+}
+
+.menu.select {
+  left: 600px;
+}
+
+.menu.depth {
+  height: 40px;
+  background-color: black;
+}
+
+.dpad {
+  width: 20px;
+  height: 80px;
+  background-color: #212121;
+}
+
+.dpad.vert {
+  width: 80px;
+  height: 20px;
+  left: 220px;
+  top: 230px;
+}
+
+.dpad.hori {
+  width: 20px;
+  height: 80px;
+  left: 250px;
+  top: 200px;
+}
+
 .dpad.depth {
-	--dpad-depth-u: 50px;
-	--dpad-depth-d: 50px;
-	--dpad-depth-l: 50px;
-	--dpad-depth-r: 50px;
-	height: 50px;
+  background-color: black;
 }
+
+.dpad.vert.depth {
+  height: 40px;
+}
+
+.dpad.hori.depth {
+  height: 100px;
+}
+
+.gamepad-body.depth {
+  height: 550px;
+  background-color: #AFA9B5;
+}
+
+.menu.depth {
+  height: 40px;
+}
+
+.dpad.depth {
+  --dpad-depth-u: $dpad-depth;
+  --dpad-depth-d: $dpad-depth;
+  --dpad-depth-l: $dpad-depth;
+  --dpad-depth-r: $dpad-depth;
+  height: 20px;
+}
+
 html,
 body {
-	padding: 0;
-	margin: 0;
-	background: #6f7cb1;
+  padding: 0;
+  margin: 0;
+  background: #6F7CB1;
 }
+
+/*# sourceMappingURL=nes.css.map */

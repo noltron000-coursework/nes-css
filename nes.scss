@@ -1,10 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Days+One&display=swap');
 
-
 // shape sizes
 $cord-radius: 50px;
 
-$gamepad-body-width: 1000px;
+$gamepad-body-width: 1200px;
 $gamepad-body-height: 500px;
 $gamepad-body-depth: 50px;
 $gamepad-body-padding-top: 240px;
@@ -17,20 +16,28 @@ $cord-height: $gamepad-body-padding-top;
 $cord-radius: 40px;
 $cord-padding-left: 240px;
 
-$button-width: 50px;
-$button-height: 50px;
-$button-depth: 50px;
+$button-width: 100px;
+$button-height: 100px;
+$button-depth: 20px;
 $button-depth-active: 5px;
+$button-padding-top: 175px;
+$button-a-padding-left: 700px;
+$button-b-padding-left: 900px;
 
-$dpad-width: 50px;
-$dpad-height: 50px;
+$dpad-width: 20px;
+$dpad-height: 80px;
 $dpad-depth: $button-depth;
 $dpad-depth-active: $button-depth-active;
+$dpad-padding-top: 250px;
+$dpad-padding-left: 250px;
 
-$squish-width: 50px;
-$squish-height: 50px;
-$squish-depth: $button-depth;
-$squish-depth-active: $button-depth-active;
+$menu-width: 80px;
+$menu-height: 20px;
+$menu-depth: $button-depth;
+$menu-depth-active: $button-depth-active;
+$menu-padding-top: 175px;
+$menu-start-padding-left: 400px;
+$menu-select-padding-left: 600px;
 
 // color theme
 $side-grey: #AFA9B5;
@@ -46,7 +53,6 @@ $dark: #212121;
 
 #gamepad * {
 	position: absolute;
-	opacity: 0.5;
 }
 
 .cord {
@@ -64,8 +70,8 @@ $dark: #212121;
 	width: $gamepad-body-width;
 	height: $gamepad-body-height;
 	// set location
-	top: $gamepad-body-padding-top;
 	left: $gamepad-body-padding-left;
+	top: $gamepad-body-padding-top;
 	// set colors
 	background-color: $base-grey;
 	// this one has children
@@ -78,8 +84,8 @@ $dark: #212121;
 	width: $gamepad-body-width - (2 * $gamepad-face-padding);
 	height: $gamepad-body-height - ($gamepad-face-padding + $gamepad-face-padding-top);
 	// set location
-	top: $gamepad-face-padding-top;
 	left: $gamepad-face-padding;
+	top: $gamepad-face-padding-top;
 	// set colors
 	background-color: $face-grey;
 }
@@ -88,33 +94,108 @@ $dark: #212121;
 	// set dimensions first
 	width: $button-width;
 	height: $button-height;
+	// set location
+	top: $button-padding-top - $button-depth;
+	// set colors
+	background-color: $base-red;
 }
 
-.squish {
+.button.a {
+	// set location
+	left: $button-a-padding-left;
+}
+
+.button.b {
+	left: $button-b-padding-left;
+}
+
+.button.depth {
 	// set dimensions first
-	width: $squish-width;
-	height: $squish-height;
+	height: $button-height + $button-depth;
+	// set colors
+	background-color: $side-red;
+}
+
+.menu {
+	// set dimensions first
+	width: $menu-width;
+	height: $menu-height;
+	// set location
+	top: $menu-padding-top - $menu-depth;
+	// left: $menu-start-padding-left;
+	// set colors
+	background-color: $dark;
+}
+
+.menu.start {
+	// set location
+	left: $menu-start-padding-left;
+}
+
+.menu.select {
+	// set location
+	left: $menu-select-padding-left;
+}
+
+.menu.depth {
+	// set dimensions first
+	height: $menu-height + $menu-depth;
+	// set colors
+	background-color: black;
 }
 
 .dpad {
 	// set dimensions first
 	width: $dpad-width;
 	height: $dpad-height;
+	// set colors
+	background-color: $dark;
 }
+
+.dpad.vert {
+	// set dimensions first
+	width: $dpad-height;
+	height: $dpad-width;
+	// set location
+	left: $dpad-padding-left + ($dpad-width - $dpad-height) / 2;
+	top: $dpad-padding-top - $dpad-depth;
+}
+
+.dpad.hori {
+	// set dimensions first
+	width: $dpad-width;
+	height: $dpad-height;
+	// set location
+	left: $dpad-padding-left;
+	top: $dpad-padding-top - $dpad-depth + ($dpad-width  - $dpad-height) / 2;
+}
+
+.dpad.depth {
+	// set color
+	background-color: black;
+}
+
+.dpad.vert.depth {
+	// set dimensions first
+	height: $dpad-width + $dpad-depth;
+}
+
+.dpad.hori.depth {
+	// set dimensions first
+	height: $dpad-height + $dpad-depth;
+}
+
 
 .gamepad-body.depth {
 	// set dimensions first
 	height: $gamepad-body-height + $gamepad-body-depth;
+	// set colors
+	background-color: $side-grey;
 }
 
-.button.depth {
+.menu.depth {
 	// set dimensions first
-	height: $button-height + $button-depth;
-}
-
-.squish.depth {
-	// set dimensions first
-	height: $squish-height + $squish-depth;
+	height: $menu-height + $menu-depth;
 }
 
 .dpad.depth {
@@ -132,250 +213,3 @@ body {
 	margin: 0;
 	background: $game-sky
 }
-
-// #container * {
-// 	position: absolute;
-// }
-
-// .controller {
-// 	margin-top: 140px;
-// 	width: 1200px;
-// 	height: 500px;
-// 	background: lightgrey;
-// 	border-radius: 10px;
-// }
-
-// .bottom {
-// 	margin-top: 620px; 
-// 	width: 1200px;
-// 	height: 80px;
-// 	background: darkgrey;
-// 	border-radius: 10px;
-// }
-
-// .cord {
-// 	margin-top: -200px;
-// 	margin-left: 300px;
-// 	width: 36px;
-// 	height: 340px;
-// 	background: #222;
-// }
-
-// .face {
-// 	margin-left: 20px;
-// 	margin-top: 180px;
-// 	width: 1160px;
-// 	height: 440px;
-// 	background: #505050;
-// 	border-radius: 20px;
-// }
-
-// .inlay.dpad.wide {
-// 	margin-left: calc(20px + 100px - 40px);
-// 	margin-top: calc(460px - 100px + 80px - 40px);
-// 	width: 240px;
-// 	height: 80px;
-// 	background: lightgrey;
-// 	border-radius: 10px;
-// }
-
-// .inlay.dpad.tall {
-// 	margin-left: calc(20px + 100px + 80px - 40px);
-// 	margin-top: calc(460px - 100px - 40px);
-// 	width: 80px;
-// 	height: 240px;
-// 	background: lightgrey;
-// 	border-radius: 10px;
-// }
-
-// .button.dpad.wide {
-// 	margin-left: calc(20px + 100px + 5px - 40px);
-// 	margin-top: calc(460px - 90px + 75px - 40px);
-// 	width: 230px;
-// 	height: 70px;
-// 	background: #222;
-// 	border-radius: 2.5px;
-// }
-
-// .button.dpad.tall {
-// 	margin-left: calc(20px + 110px + 75px - 40px);
-// 	margin-top: calc(460px - 100px + 5px - 40px);
-// 	width: 70px;
-// 	height: 230px;
-// 	background: #222;
-// 	border-radius: 2.5px;
-// }
-
-// .flourish.a {
-// 	margin-left: 380px;
-// 	margin-top: calc(180px + 10px);
-// 	width: 360px;
-// 	height: 70px;
-// 	background: #908888;
-// 	border-radius: 20px;
-// }
-
-// .flourish.b {
-// 	margin-left: 380px;
-// 	margin-top: calc(180px + 90px);
-// 	width: 360px;
-// 	height: 70px;
-// 	background: #908888;
-// 	border-radius: 20px;
-// }
-
-// .flourish.c {
-// 	margin-left: 380px;
-// 	margin-top: calc(180px + 170px);
-// 	width: 360px;
-// 	height: 70px;
-// 	background: #908888;
-// 	border-radius: 20px;
-// }
-
-// .flourish.d {
-// 	margin-left: 380px;
-// 	margin-top: calc(180px + 360px);
-// 	width: 360px;
-// 	height: 70px;
-// 	background: #908888;
-// 	border-radius: 20px;
-// }
-
-// .inlay.menu {
-// 	margin-left: 390px;
-// 	margin-top: calc(180px + 250px);
-// 	width: 340px;
-// 	height: 100px;
-// 	background: lightgrey;
-// 	border-radius: 5px;
-// }
-
-// .logo {
-// 	color: firebrick;
-// }
-
-// .inlay.circle {
-// 	margin-top: calc(190px + 250px - 20px);
-// 	width: 120px;
-// 	height: 120px;
-// 	background: lightgrey;
-// 	border-radius: 5px;
-// }
-
-// .inlay.circle.a {
-// 	margin-left: 810px;
-// }
-
-// .inlay.circle.b {
-// 	margin-left: 960px;
-// }
-
-
-// .button.circle.base {
-// 	margin-top: calc(190px + 250px - 15px);
-// 	width: 110px;
-// 	height: 110px;
-// 	background: darkred;
-// 	border-radius: 50%;
-// }
-
-// .button.circle.base.a,
-// .button.circle.shaft.a,
-// .button.circle.face.a {
-// 	margin-left: 815px;
-// }
-
-// .button.circle.base.b,
-// .button.circle.shaft.b,
-// .button.circle.face.b {
-// 	margin-left: 965px;
-// }
-
-// .button.circle.shaft {
-// 	margin-top: calc(190px + 250px - 15px + 30px);
-// 	width: 110px;
-// 	height: 25px;
-// 	background: darkred;
-// }
-
-// .button.circle.face {
-// 	margin-top: calc(190px + 250px - 15px - 25px);
-// 	width: 110px;
-// 	height: 110px;
-// 	background: firebrick;
-// 	border-radius: 50%;
-// }
-
-// .button.circle.parent > * {
-// 	transition: 100ms;
-// }
-
-// .button.circle.parent.a:active > .shaft {
-// 	margin-top: calc(190px + 250px - 15px + 30px + 20px);
-// 	height: calc(25px - 20px);
-// }
-
-// .button.circle.parent.a:active > .face {
-// 	margin-top: calc(190px + 250px - 15px - 25px + 20px);
-// }
-
-// .button.circle.parent.b:active > .shaft {
-// 	margin-top: calc(190px + 250px - 15px + 30px + 20px);
-// 	height: calc(25px - 20px);
-// }
-
-// .button.circle.parent.b:active > .face {
-// 	margin-top: calc(190px + 250px - 15px - 25px + 20px);
-// }
-
-// .text {
-// 	font-size: 42px;
-// 	color: firebrick;
-// 	font-family: 'Days One', sans-serif;
-// }
-
-// .button.text {
-// 	margin-top: 120px;
-// }
-
-// .menu.text {
-// 	margin-top: calc(180px + 170px + 15px);
-// 	margin-left: 390px;
-// 	font-size: 36px;
-// }
-
-// .menu.text.start {
-// 	margin-left: 390px;
-// 	text-align: left;
-// }
-
-// .menu.text.select {
-// 	margin-left: calc(390px + 175px);
-// 	text-align: right;
-// }
-
-// .button.squish {
-// 	margin-top: calc(190px + 250px + 25px);
-// 	width: 110px;
-// 	height: 30px;
-// 	background: #222;
-// 	border-radius: 15px;
-// }
-
-// .button.squish.start {
-// 	margin-left: calc(420px);
-// }
-
-// .button.squish.select {
-// 	margin-left: calc(420px + 170px);
-// }
-
-// .logo.text {
-// 	margin-top: 240px;
-// 	margin-left: 840px;
-// }
-
-// small {
-// 	font-size: 26px;
-// }
