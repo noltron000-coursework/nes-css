@@ -1,90 +1,113 @@
+/*
+MULTIPLIER: 3
+
+multiplier         | 3
+controller width   | 1440 | 1/1
+controller height  | 600  | 5/12
+dpad width         | 96   | 1/15
+dpad height        | 555  | 7/18
+dpad left          | 72   | 1/20
+dpad top           | 40   | 1/12
+
+
+dpad-left: 24     -- 1/60
+dpad-top: 40      -- 1/36
+dpad-base/outline -- 1/360 width
+menu-width: 111   -- 7/90 width
+menu-height: 42   -- 7/240 width
+button-width: 120 --  1/12 width
+cord-radius: 16 -- 1/90 width
+cord-left: -- 1/12 width
+*/
 @import url("https://fonts.googleapis.com/css?family=Days+One&display=swap");
 #gamepad * {
   position: absolute;
 }
 
 .cord {
-  width: 40px;
-  height: 240px;
-  left: 320px;
+  width: 3.3333333333vw;
+  height: 10vh;
+  left: 30.8333333333vw;
   background-color: #212121;
 }
 
 .gamepad-body {
-  width: 1200px;
-  height: 500px;
-  left: 80px;
-  top: 240px;
+  width: 80vw;
+  height: 33.3333333333vw;
+  left: 10vw;
+  top: 10vh;
   background-color: #D8D7DC;
   position: absolute;
 }
 
 .gamepad-face {
-  width: 1100px;
-  height: 370px;
-  left: 50px;
-  top: 80px;
+  width: 75vw;
+  height: 25.5vw;
+  left: 2.5vw;
+  top: 5.3333333333vw;
   background-color: #464646;
 }
 
 .button {
-  width: 100px;
-  height: 100px;
-  top: 155px;
+  width: 7.1111111111vw;
+  height: 7.1111111111vw;
+  border-radius: 50vh;
+  top: 7vw;
   background-color: #CE4A43;
 }
 
 .button.a {
-  left: 700px;
+  left: 60vw;
 }
 
 .button.b {
-  left: 900px;
+  left: 50vw;
 }
 
 .button.depth {
-  height: 120px;
+  height: 15.1111111111vw;
   background-color: #982D29;
 }
 
 .menu {
-  width: 80px;
-  height: 20px;
-  top: 155px;
+  width: 6.6666666667vw;
+  height: 2.5vw;
+  border-radius: 50vw;
+  top: 9.5vw;
   background-color: #212121;
 }
 
 .menu.start {
-  left: 400px;
+  left: 36.6666666667vw;
 }
 
 .menu.select {
-  left: 600px;
+  left: 26.6666666667vw;
 }
 
 .menu.depth {
-  height: 40px;
+  height: 10.5vw;
   background-color: black;
 }
 
 .dpad {
-  width: 20px;
-  height: 80px;
+  width: 13.3333333333vw;
+  height: 4.4444444444vw;
   background-color: #212121;
 }
 
 .dpad.vert {
-  width: 80px;
-  height: 20px;
-  left: 220px;
-  top: 230px;
+  width: 4.4444444444vw;
+  height: 13.3333333333vw;
+  left: 8.8888888889vw;
+  top: 0vw;
 }
 
 .dpad.hori {
-  width: 20px;
-  height: 80px;
-  left: 250px;
-  top: 200px;
+  width: 13.3333333333vw;
+  height: 4.4444444444vw;
+  left: 4.4444444444vw;
+  top: 4.4444444444vw;
 }
 
 .dpad.depth {
@@ -92,28 +115,20 @@
 }
 
 .dpad.vert.depth {
-  height: 40px;
+  height: 21.3333333333vw;
 }
 
 .dpad.hori.depth {
-  height: 100px;
+  height: 12.4444444444vw;
 }
 
 .gamepad-body.depth {
-  height: 550px;
+  height: 38.6666666667vw;
   background-color: #AFA9B5;
 }
 
 .menu.depth {
-  height: 40px;
-}
-
-.dpad.depth {
-  --dpad-depth-u: $dpad-depth;
-  --dpad-depth-d: $dpad-depth;
-  --dpad-depth-l: $dpad-depth;
-  --dpad-depth-r: $dpad-depth;
-  height: 20px;
+  height: 10.5vw;
 }
 
 html,

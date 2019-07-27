@@ -1,43 +1,71 @@
+/*
+MULTIPLIER: 3
+
+multiplier         | 3
+controller width   | 1440 | 1/1
+controller height  | 600  | 5/12
+dpad width         | 96   | 1/15
+dpad height        | 555  | 7/18
+dpad left          | 72   | 1/20
+dpad top           | 40   | 1/12
+
+
+dpad-left: 24     -- 1/60
+dpad-top: 40      -- 1/36
+dpad-base/outline -- 1/360 width
+menu-width: 111   -- 7/90 width
+menu-height: 42   -- 7/240 width
+button-width: 120 --  1/12 width
+cord-radius: 16 -- 1/90 width
+cord-left: -- 1/12 width
+*/
+
+
+
 @import url('https://fonts.googleapis.com/css?family=Days+One&display=swap');
 
-// shape sizes
-$cord-radius: 50px;
+// base unit
+$unit: 80vw;
 
-$gamepad-body-width: 1200px;
-$gamepad-body-height: 500px;
-$gamepad-body-depth: 50px;
-$gamepad-body-padding-top: 240px;
-$gamepad-body-padding-left: 80px;
+$gamepad-body-left: 10vw;
+$gamepad-body-top:  10vh;
+$gamepad-body-width:  $unit;
+$gamepad-body-height: $unit * 5 / 12;
+$gamepad-body-depth:  $unit / 15;
 
-$gamepad-face-padding: 50px;
-$gamepad-face-padding-top: 80px;
+$gamepad-face-left:   $unit / 32;
+$gamepad-face-top:    $unit / 15;
+$gamepad-face-width:  $gamepad-body-width - (2 * $gamepad-face-left);
+$gamepad-face-height: $gamepad-body-height - ($gamepad-face-left + $gamepad-face-top);
 
-$cord-height: $gamepad-body-padding-top;
-$cord-radius: 40px;
-$cord-padding-left: 240px;
+$cord-left:   $unit * 25 / 96;
+$cord-radius: $unit / 24;
+$cord-height: $gamepad-body-top;
 
-$button-width: 100px;
-$button-height: 100px;
-$button-depth: 20px;
-$button-depth-active: 5px;
-$button-padding-top: 175px;
-$button-a-padding-left: 700px;
-$button-b-padding-left: 900px;
+$button-a-left: $unit * 3 / 4;
+$button-b-left: $unit * 10 / 16;
+$button-top:    $unit * 3 / 16;
+$button-width:  $unit * 4 / 45;
+$button-height: $button-width;
+$button-depth: $unit / 10;
+// $button-depth-active: 5px;
 
-$dpad-width: 20px;
-$dpad-height: 80px;
+$dpad-left:   $unit / 18;
+$dpad-top:    $unit / 10;
+$dpad-width:  $unit / 6;
+$dpad-height: $unit / 18;
 $dpad-depth: $button-depth;
-$dpad-depth-active: $button-depth-active;
-$dpad-padding-top: 250px;
-$dpad-padding-left: 250px;
+// arctan((dpad-depth - dpad-depth-active) / dpad-width)
+// $dpad-arctan: 4.289153328212762517deg;
+// $dpad-depth-active: $button-depth-active;
 
-$menu-width: 80px;
-$menu-height: 20px;
+$menu-width:       $unit / 12;
+$menu-height:      $unit / 32;
+$menu-select-left: $unit / 3 ;
+$menu-start-left:  $unit * 11 / 24;
+$menu-top:         $unit * 7 / 32;
 $menu-depth: $button-depth;
-$menu-depth-active: $button-depth-active;
-$menu-padding-top: 175px;
-$menu-start-padding-left: 400px;
-$menu-select-padding-left: 600px;
+// $menu-depth-active: $button-depth-active;
 
 // color theme
 $side-grey: #AFA9B5;
@@ -60,7 +88,7 @@ $dark: #212121;
 	width: $cord-radius;
 	height: $cord-height;
 	// set location
-	left: $cord-padding-left + $gamepad-body-padding-left;
+	left: $cord-left + $gamepad-body-left;
 	// set colors
 	background-color: $dark;
 }
@@ -70,8 +98,8 @@ $dark: #212121;
 	width: $gamepad-body-width;
 	height: $gamepad-body-height;
 	// set location
-	left: $gamepad-body-padding-left;
-	top: $gamepad-body-padding-top;
+	left: $gamepad-body-left;
+	top: $gamepad-body-top;
 	// set colors
 	background-color: $base-grey;
 	// this one has children
@@ -81,11 +109,11 @@ $dark: #212121;
 .gamepad-face {
 	// set dimensions first
 	// calculate face dimensions by body plus padding
-	width: $gamepad-body-width - (2 * $gamepad-face-padding);
-	height: $gamepad-body-height - ($gamepad-face-padding + $gamepad-face-padding-top);
+	width: $gamepad-body-width - (2 * $gamepad-face-left);
+	height: $gamepad-body-height - ($gamepad-face-left + $gamepad-face-top);
 	// set location
-	left: $gamepad-face-padding;
-	top: $gamepad-face-padding-top;
+	left: $gamepad-face-left;
+	top: $gamepad-face-top;
 	// set colors
 	background-color: $face-grey;
 }
@@ -94,19 +122,20 @@ $dark: #212121;
 	// set dimensions first
 	width: $button-width;
 	height: $button-height;
+	border-radius: 50vh;
 	// set location
-	top: $button-padding-top - $button-depth;
+	top: $button-top - $button-depth;
 	// set colors
 	background-color: $base-red;
 }
 
 .button.a {
 	// set location
-	left: $button-a-padding-left;
+	left: $button-a-left;
 }
 
 .button.b {
-	left: $button-b-padding-left;
+	left: $button-b-left;
 }
 
 .button.depth {
@@ -120,21 +149,23 @@ $dark: #212121;
 	// set dimensions first
 	width: $menu-width;
 	height: $menu-height;
+	// set border items
+	border-radius: 50vw;
 	// set location
-	top: $menu-padding-top - $menu-depth;
-	// left: $menu-start-padding-left;
+	top: $menu-top - $menu-depth;
+	// left: $menu-start-left;
 	// set colors
 	background-color: $dark;
 }
 
 .menu.start {
 	// set location
-	left: $menu-start-padding-left;
+	left: $menu-start-left;
 }
 
 .menu.select {
 	// set location
-	left: $menu-select-padding-left;
+	left: $menu-select-left;
 }
 
 .menu.depth {
@@ -157,8 +188,8 @@ $dark: #212121;
 	width: $dpad-height;
 	height: $dpad-width;
 	// set location
-	left: $dpad-padding-left + ($dpad-width - $dpad-height) / 2;
-	top: $dpad-padding-top - $dpad-depth;
+	left: $dpad-left + ($dpad-width - $dpad-height) / 2;
+	top: $dpad-top - $dpad-depth;
 }
 
 .dpad.hori {
@@ -166,8 +197,8 @@ $dark: #212121;
 	width: $dpad-width;
 	height: $dpad-height;
 	// set location
-	left: $dpad-padding-left;
-	top: $dpad-padding-top - $dpad-depth + ($dpad-width  - $dpad-height) / 2;
+	left: $dpad-left;
+	top: $dpad-top - $dpad-depth + ($dpad-width  - $dpad-height) / 2;
 }
 
 .dpad.depth {
@@ -185,6 +216,9 @@ $dark: #212121;
 	height: $dpad-height + $dpad-depth;
 }
 
+.dpad-group:active {
+	// transform: translateY(0px) skew(0deg, $dpad-arctan);
+}
 
 .gamepad-body.depth {
 	// set dimensions first
@@ -196,15 +230,6 @@ $dark: #212121;
 .menu.depth {
 	// set dimensions first
 	height: $menu-height + $menu-depth;
-}
-
-.dpad.depth {
-	// set dimensions first
-	--dpad-depth-u: $dpad-depth;
-	--dpad-depth-d: $dpad-depth;
-	--dpad-depth-l: $dpad-depth;
-	--dpad-depth-r: $dpad-depth;
-	height: $dpad-depth;
 }
 
 html,
