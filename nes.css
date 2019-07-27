@@ -25,34 +25,34 @@ cord-left: -- 1/12 width
 }
 
 .cord {
+  left: 30.8333333333vw;
   width: 3.3333333333vw;
   height: 10vh;
-  left: 30.8333333333vw;
   background-color: #212121;
 }
 
 .gamepad-body {
-  width: 80vw;
-  height: 33.3333333333vw;
   left: 10vw;
   top: 10vh;
+  width: 80vw;
+  height: 33.3333333333vw;
   background-color: #D8D7DC;
   position: absolute;
 }
 
 .gamepad-face {
-  width: 75vw;
-  height: 25.5vw;
   left: 2.5vw;
   top: 5.3333333333vw;
+  width: 75vw;
+  height: 25.5vw;
   background-color: #464646;
 }
 
 .button {
+  top: 13.4vw;
   width: 7.1111111111vw;
   height: 7.1111111111vw;
-  border-radius: 50vh;
-  top: 7vw;
+  border-radius: 50%;
   background-color: #CE4A43;
 }
 
@@ -65,15 +65,22 @@ cord-left: -- 1/12 width
 }
 
 .button.depth {
-  height: 15.1111111111vw;
+  top: 16.9555555556vw;
+  height: 1.6vw;
+  border-radius: 0;
+  background-color: #982D29;
+}
+
+.button.base {
+  top: 15vw;
   background-color: #982D29;
 }
 
 .menu {
+  top: 15.9vw;
   width: 6.6666666667vw;
   height: 2.5vw;
-  border-radius: 50vw;
-  top: 9.5vw;
+  border-radius: 50vh;
   background-color: #212121;
 }
 
@@ -86,7 +93,14 @@ cord-left: -- 1/12 width
 }
 
 .menu.depth {
-  height: 10.5vw;
+  top: 17.15vw;
+  height: 1.6vw;
+  border-radius: 0;
+  background-color: black;
+}
+
+.menu.base {
+  top: 17.5vw;
   background-color: black;
 }
 
@@ -97,17 +111,17 @@ cord-left: -- 1/12 width
 }
 
 .dpad.vert {
+  left: 8.8888888889vw;
+  top: 6.4vw;
   width: 4.4444444444vw;
   height: 13.3333333333vw;
-  left: 8.8888888889vw;
-  top: 0vw;
 }
 
 .dpad.hori {
+  left: 4.4444444444vw;
+  top: 10.8444444444vw;
   width: 13.3333333333vw;
   height: 4.4444444444vw;
-  left: 4.4444444444vw;
-  top: 4.4444444444vw;
 }
 
 .dpad.depth {
@@ -115,20 +129,16 @@ cord-left: -- 1/12 width
 }
 
 .dpad.vert.depth {
-  height: 21.3333333333vw;
+  height: 14.9333333333vw;
 }
 
 .dpad.hori.depth {
-  height: 12.4444444444vw;
+  height: 6.0444444444vw;
 }
 
 .gamepad-body.depth {
   height: 38.6666666667vw;
   background-color: #AFA9B5;
-}
-
-.menu.depth {
-  height: 10.5vw;
 }
 
 html,

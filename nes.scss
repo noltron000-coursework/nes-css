@@ -47,7 +47,7 @@ $button-b-left: $unit * 10 / 16;
 $button-top:    $unit * 3 / 16;
 $button-width:  $unit * 4 / 45;
 $button-height: $button-width;
-$button-depth: $unit / 10;
+$button-depth:  $unit / 50;
 // $button-depth-active: 5px;
 
 $dpad-left:   $unit / 18;
@@ -64,7 +64,7 @@ $menu-height:      $unit / 32;
 $menu-select-left: $unit / 3 ;
 $menu-start-left:  $unit * 11 / 24;
 $menu-top:         $unit * 7 / 32;
-$menu-depth: $button-depth;
+$menu-depth:       $button-depth;
 // $menu-depth-active: $button-depth-active;
 
 // color theme
@@ -84,22 +84,22 @@ $dark: #212121;
 }
 
 .cord {
-	// set dimensions first
+	// set location first
+	left: $cord-left + $gamepad-body-left;
+	// set dimensions next
 	width: $cord-radius;
 	height: $cord-height;
-	// set location
-	left: $cord-left + $gamepad-body-left;
 	// set colors
 	background-color: $dark;
 }
 
 .gamepad-body {
-	// set dimensions first
-	width: $gamepad-body-width;
-	height: $gamepad-body-height;
-	// set location
+	// set location first
 	left: $gamepad-body-left;
 	top: $gamepad-body-top;
+	// set dimensions next
+	width: $gamepad-body-width;
+	height: $gamepad-body-height;
 	// set colors
 	background-color: $base-grey;
 	// this one has children
@@ -107,30 +107,31 @@ $dark: #212121;
 }
 
 .gamepad-face {
-	// set dimensions first
+	// set location first
+	left: $gamepad-face-left;
+	top: $gamepad-face-top;
+	// set dimensions next
 	// calculate face dimensions by body plus padding
 	width: $gamepad-body-width - (2 * $gamepad-face-left);
 	height: $gamepad-body-height - ($gamepad-face-left + $gamepad-face-top);
-	// set location
-	left: $gamepad-face-left;
-	top: $gamepad-face-top;
 	// set colors
 	background-color: $face-grey;
 }
 
 .button {
-	// set dimensions first
+	// set location first
+	top: $button-top - $button-depth;
+	// set dimensions next
 	width: $button-width;
 	height: $button-height;
-	border-radius: 50vh;
-	// set location
-	top: $button-top - $button-depth;
+	// set border items
+	border-radius: 50%;
 	// set colors
 	background-color: $base-red;
 }
 
 .button.a {
-	// set location
+	// set location first
 	left: $button-a-left;
 }
 
@@ -139,44 +140,66 @@ $dark: #212121;
 }
 
 .button.depth {
-	// set dimensions first
-	height: $button-height + $button-depth;
+	//set location first
+	top: $button-top - $button-depth + ($button-height / 2);
+	// set dimensions next
+	height: $button-depth;
+	// set border items
+	border-radius: 0;
+	// set colors
+	background-color: $side-red;
+}
+
+.button.base {
+	//set location first
+	top: $button-top;
 	// set colors
 	background-color: $side-red;
 }
 
 .menu {
-	// set dimensions first
+	// set location first
+	top: $menu-top - $menu-depth;
+	// set dimensions next
 	width: $menu-width;
 	height: $menu-height;
 	// set border items
-	border-radius: 50vw;
-	// set location
-	top: $menu-top - $menu-depth;
+	border-radius: 50vh;
 	// left: $menu-start-left;
 	// set colors
 	background-color: $dark;
 }
 
 .menu.start {
-	// set location
+	// set location first
 	left: $menu-start-left;
 }
 
 .menu.select {
-	// set location
+	// set location first
 	left: $menu-select-left;
 }
 
 .menu.depth {
-	// set dimensions first
-	height: $menu-height + $menu-depth;
+	//set location first
+	top: $menu-top - $menu-depth + ($menu-height / 2);
+	// set dimensions next
+	height: $menu-depth;
+	// set border items
+	border-radius: 0;
+	// set colors
+	background-color: black;
+}
+
+.menu.base {
+	//set location first
+	top: $menu-top;
 	// set colors
 	background-color: black;
 }
 
 .dpad {
-	// set dimensions first
+	// set dimensions next
 	width: $dpad-width;
 	height: $dpad-height;
 	// set colors
@@ -184,21 +207,21 @@ $dark: #212121;
 }
 
 .dpad.vert {
-	// set dimensions first
-	width: $dpad-height;
-	height: $dpad-width;
-	// set location
+	// set location first
 	left: $dpad-left + ($dpad-width - $dpad-height) / 2;
 	top: $dpad-top - $dpad-depth;
+	// set dimensions next
+	width: $dpad-height;
+	height: $dpad-width;
 }
 
 .dpad.hori {
-	// set dimensions first
-	width: $dpad-width;
-	height: $dpad-height;
-	// set location
+	// set location first
 	left: $dpad-left;
 	top: $dpad-top - $dpad-depth + ($dpad-width  - $dpad-height) / 2;
+	// set dimensions next
+	width: $dpad-width;
+	height: $dpad-height;
 }
 
 .dpad.depth {
@@ -207,12 +230,12 @@ $dark: #212121;
 }
 
 .dpad.vert.depth {
-	// set dimensions first
+	// set dimensions next
 	height: $dpad-width + $dpad-depth;
 }
 
 .dpad.hori.depth {
-	// set dimensions first
+	// set dimensions next
 	height: $dpad-height + $dpad-depth;
 }
 
@@ -221,15 +244,10 @@ $dark: #212121;
 }
 
 .gamepad-body.depth {
-	// set dimensions first
+	// set dimensions next
 	height: $gamepad-body-height + $gamepad-body-depth;
 	// set colors
 	background-color: $side-grey;
-}
-
-.menu.depth {
-	// set dimensions first
-	height: $menu-height + $menu-depth;
 }
 
 html,
