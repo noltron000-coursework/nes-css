@@ -36,6 +36,7 @@ cord-left: -- 1/12 width
   top: 10vh;
   width: 80vw;
   height: 33.3333333333vw;
+  border-radius: 1.1111111111vw;
   background-color: #D8D7DC;
   position: absolute;
 }
@@ -45,7 +46,19 @@ cord-left: -- 1/12 width
   top: 5.3333333333vw;
   width: 75vw;
   height: 25.5vw;
+  border-radius: 1.1111111111vw;
   background-color: #464646;
+}
+
+.button-group:active .button {
+  top: 14.6vw;
+}
+.button-group:active .button.depth {
+  top: 18.1555555556vw;
+  height: 0.4vw;
+}
+.button-group:active .button.base {
+  top: 15vw;
 }
 
 .button {
@@ -74,6 +87,17 @@ cord-left: -- 1/12 width
 .button.base {
   top: 15vw;
   background-color: #982D29;
+}
+
+.menu-group:active .menu {
+  top: 17.1vw;
+}
+.menu-group:active .menu.depth {
+  top: 18.35vw;
+  height: 0.4vw;
+}
+.menu-group:active .menu.base {
+  top: 17.5vw;
 }
 
 .menu {
@@ -107,6 +131,7 @@ cord-left: -- 1/12 width
 .dpad {
   width: 13.3333333333vw;
   height: 4.4444444444vw;
+  border-radius: 0.5555555556vw;
   background-color: #212121;
 }
 
