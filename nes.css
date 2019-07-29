@@ -41,6 +41,11 @@ cord-left: -- 1/12 width
   position: absolute;
 }
 
+.gamepad-body.depth {
+  height: 38.6666666667vw;
+  background-color: #AFA9B5;
+}
+
 .gamepad-face {
   left: 2.5vw;
   top: 5.3333333333vw;
@@ -89,6 +94,22 @@ cord-left: -- 1/12 width
   background-color: #982D29;
 }
 
+.button-plate {
+  top: 14.375vw;
+  width: 8.3611111111vw;
+  height: 8.3611111111vw;
+  border-radius: 0.5555555556vw;
+  background-color: #D8D7DC;
+}
+
+.button-plate.a {
+  left: 59.375vw;
+}
+
+.button-plate.b {
+  left: 49.375vw;
+}
+
 .menu-group:active .menu {
   top: 17.1vw;
 }
@@ -108,12 +129,12 @@ cord-left: -- 1/12 width
   background-color: #212121;
 }
 
-.menu.start {
-  left: 36.6666666667vw;
-}
-
 .menu.select {
   left: 26.6666666667vw;
+}
+
+.menu.start {
+  left: 36.6666666667vw;
 }
 
 .menu.depth {
@@ -126,6 +147,18 @@ cord-left: -- 1/12 width
 .menu.base {
   top: 17.5vw;
   background-color: black;
+}
+
+.menu-plate {
+  top: 14.65vw;
+  left: 24.1666666667vw;
+  height: 5.2777777778vw;
+  width: 19.4444444444vw;
+  border-radius: 0.5555555556vw;
+  border-width: 1.1111111111vw;
+  border-color: #D8D7DC;
+  border-style: ridge;
+  background-color: #D8D7DC;
 }
 
 .dpad {
@@ -161,9 +194,33 @@ cord-left: -- 1/12 width
   height: 6.0444444444vw;
 }
 
-.gamepad-body.depth {
-  height: 38.6666666667vw;
-  background-color: #AFA9B5;
+.filigree {
+  left: 24.1666666667vw;
+  width: 21.6666666667vw;
+  height: 3.4880952381vw;
+  border-radius: 1.1111111111vw;
+  background-color: #93948F;
+}
+
+.filigree.list-1 {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  top: 0;
+}
+
+.filigree.list-2 {
+  top: 4.8833333333vw;
+}
+
+.filigree.list-3 {
+  top: 9.7666666667vw;
+}
+
+.filigree.list-4 {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  top: 23.5452380952vw;
+  height: 1.9533333333vw;
 }
 
 html,

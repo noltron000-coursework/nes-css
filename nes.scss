@@ -42,13 +42,14 @@ $cord-left:   $unit * 25 / 96;
 $cord-radius: $unit / 24;
 $cord-height: $gamepad-body-top;
 
-$button-a-left:       $unit * 3 / 4;
-$button-b-left:       $unit * 10 / 16;
-$button-top:          $unit * 3 / 16;
-$button-width:        $unit * 4 / 45;
-$button-height:       $button-width;
-$button-depth:        $unit / 50;
-$button-depth-active: $button-depth * 3 / 4;
+$button-a-left:        $unit * 3 / 4;
+$button-b-left:        $unit * 10 / 16;
+$button-top:           $unit * 3 / 16;
+$button-width:         $unit * 4 / 45;
+$button-height:        $button-width;
+$button-depth:         $unit / 50;
+$button-depth-active:  $button-depth * 3 / 4;
+$button-plate-padding: $unit / 128;
 
 $dpad-left:   $unit / 18;
 $dpad-top:    $unit / 10;
@@ -59,13 +60,21 @@ $dpad-depth: $button-depth;
 // $dpad-arctan: 4.289153328212762517deg;
 // $dpad-depth-active: $button-depth-active;
 
-$menu-width:        $unit / 12;
-$menu-height:       $unit / 32;
-$menu-select-left:  $unit / 3 ;
-$menu-start-left:   $unit * 11 / 24;
-$menu-top:          $unit * 7 / 32;
-$menu-depth:        $button-depth;
-$menu-depth-active: $button-depth-active;
+$menu-width:         $unit / 12;
+$menu-height:        $unit / 32;
+$menu-select-left:   $unit / 3;
+$menu-start-left:    $unit * 11 / 24;
+$menu-top:           $unit * 7 / 32;
+$menu-depth:         $button-depth;
+$menu-depth-active:  $button-depth-active;
+$menu-plate-padding: $unit / 32;
+
+
+$filigree-width:  $unit * 99 / 352;
+// $filigree-height: $unit * 11 / 240;
+$filigree-gap:    ($menu-top - $menu-depth + ($menu-height / 2) - $menu-plate-padding) * (8 / 28)  / 3; // * (22 / 35);
+$filigree-height: ($menu-top - $menu-depth + ($menu-height / 2) - $menu-plate-padding) * (20 / 28) / 3; // * (22 / 35);
+$filigree-left:   $menu-select-left - $menu-plate-padding;
 
 // color theme
 $side-grey: #AFA9B5;
@@ -76,7 +85,6 @@ $fili-grey: #93948F;
 
 $side-red: #982D29;
 $base-red: #CE4A43;
-
 $game-sky: #6F7CB1;
 
 #gamepad * {
@@ -106,6 +114,13 @@ $game-sky: #6F7CB1;
 	background-color: $base-grey;
 	// this one has children
 	position: absolute;
+}
+
+.gamepad-body.depth {
+	// set dimensions next
+	height: $gamepad-body-height + $gamepad-body-depth;
+	// set colors
+	background-color: $side-grey;
 }
 
 .gamepad-face {
@@ -156,6 +171,7 @@ $game-sky: #6F7CB1;
 }
 
 .button.b {
+	// set location first
 	left: $button-b-left;
 }
 
@@ -175,6 +191,28 @@ $game-sky: #6F7CB1;
 	top: $button-top;
 	// set colors
 	background-color: $side-red;
+}
+
+.button-plate {
+	// set location first
+	top: $button-top - $button-plate-padding;
+	// set dimensions next
+	width: $button-width + (2 * $button-plate-padding);
+	height: $button-height + (2 * $button-plate-padding);
+	// set border items
+	border-radius: $unit / 144;
+	// set colors
+	background-color: $base-grey;
+}
+
+.button-plate.a {
+	// set location first
+	left: $button-a-left - $button-plate-padding;
+}
+
+.button-plate.b {
+	// set location first
+	left: $button-b-left - $button-plate-padding;
 }
 
 .menu-group:active {
@@ -207,18 +245,18 @@ $game-sky: #6F7CB1;
 	background-color: $dark-grey;
 }
 
-.menu.start {
-	// set location first
-	left: $menu-start-left;
-}
-
 .menu.select {
 	// set location first
 	left: $menu-select-left;
 }
 
+.menu.start {
+	// set location first
+	left: $menu-start-left;
+}
+
 .menu.depth {
-	//set location first
+	// set location first
 	top: $menu-top - $menu-depth + ($menu-height / 2);
 	// set dimensions next
 	height: $menu-depth;
@@ -233,6 +271,22 @@ $game-sky: #6F7CB1;
 	top: $menu-top;
 	// set colors
 	background-color: black;
+}
+
+.menu-plate {
+	// set location first
+	top: $menu-top - $menu-depth + ($menu-height / 2) - $menu-plate-padding;
+	left: $menu-select-left - $menu-plate-padding;
+	// set dimensions next
+	height: ($menu-plate-padding * 2) + $menu-height - $unit / 36;
+	width:  ($menu-plate-padding * 2) + $menu-width + $menu-start-left - $menu-select-left - $unit / 36;
+	// set border items
+	border-radius: $unit / 144;
+	border-width: $unit / 72;
+	border-color: $base-grey;
+	border-style: ridge;
+	// set colors
+	background-color: $base-grey;
 }
 
 .dpad {
@@ -278,15 +332,39 @@ $game-sky: #6F7CB1;
 	height: $dpad-height + $dpad-depth;
 }
 
-.dpad-group:active {
-	// transform: translateY(0px) skew(0deg, $dpad-arctan);
+.filigree {
+	// set location first
+	left: $menu-select-left - $menu-plate-padding;
+	// set dimensions next
+	width:  ($menu-plate-padding * 2) + $menu-width + $menu-start-left - $menu-select-left;
+	height: $filigree-height;
+	// radius items
+	border-radius: $unit / 72;
+	// set colors
+	background-color: $fili-grey;
 }
 
-.gamepad-body.depth {
-	// set dimensions next
-	height: $gamepad-body-height + $gamepad-body-depth;
-	// set colors
-	background-color: $side-grey;
+.filigree.list-1 {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	top: 0;
+}
+
+.filigree.list-2 {
+	top: ($filigree-height + $filigree-gap) * 1;
+}
+
+.filigree.list-3 {
+	top: ($filigree-height + $filigree-gap) * 2;
+}
+
+.filigree.list-4 {
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	top: ($filigree-height + $filigree-gap) * 3
+	   + ($filigree-gap)
+		 + ( ($menu-plate-padding * 2) + $menu-height );
+	height: $filigree-height * 14 / 25;
 }
 
 html,
