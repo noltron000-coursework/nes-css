@@ -1,0 +1,375 @@
+/*
+MULTIPLIER: 3
+
+multiplier         | 3
+controller width   | 1440 | 1/1
+controller height  | 600  | 5/12
+dpad width         | 96   | 1/15
+dpad height        | 555  | 7/18
+dpad left          | 72   | 1/20
+dpad top           | 40   | 1/12
+
+
+dpad-left: 24     -- 1/60
+dpad-top: 40      -- 1/36
+dpad-base/outline -- 1/360 width
+menu-width: 111   -- 7/90 width
+menu-height: 42   -- 7/240 width
+button-width: 120 --  1/12 width
+cord-radius: 16 -- 1/90 width
+cord-left: -- 1/12 width
+*/
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Days+One&display=swap');
+
+// base unit
+$unit: 80vw;
+
+$gamepad-body-left: 10vw;
+$gamepad-body-top:  10vh;
+$gamepad-body-width:  $unit;
+$gamepad-body-height: $unit * 5 / 12;
+$gamepad-body-depth:  $unit / 15;
+
+$gamepad-face-left:   $unit / 32;
+$gamepad-face-top:    $unit / 15;
+$gamepad-face-width:  $gamepad-body-width - (2 * $gamepad-face-left);
+$gamepad-face-height: $gamepad-body-height - ($gamepad-face-left + $gamepad-face-top);
+
+$cord-left:   $unit * 25 / 96;
+$cord-radius: $unit / 24;
+$cord-height: $gamepad-body-top;
+
+$button-a-left:        $unit * 3 / 4;
+$button-b-left:        $unit * 10 / 16;
+$button-top:           $unit * 3 / 16;
+$button-width:         $unit * 4 / 45;
+$button-height:        $button-width;
+$button-depth:         $unit / 50;
+$button-depth-active:  $button-depth * 3 / 4;
+$button-plate-padding: $unit / 128;
+
+$dpad-left:   $unit / 18;
+$dpad-top:    $unit / 10;
+$dpad-width:  $unit / 6;
+$dpad-height: $unit / 18;
+$dpad-depth: $button-depth;
+// arctan((dpad-depth - dpad-depth-active) / dpad-width)
+// $dpad-arctan: 4.289153328212762517deg;
+// $dpad-depth-active: $button-depth-active;
+
+$menu-width:         $unit / 12;
+$menu-height:        $unit / 32;
+$menu-select-left:   $unit / 3;
+$menu-start-left:    $unit * 11 / 24;
+$menu-top:           $unit * 7 / 32;
+$menu-depth:         $button-depth;
+$menu-depth-active:  $button-depth-active;
+$menu-plate-padding: $unit / 32;
+
+
+$filigree-width:  $unit * 99 / 352;
+// $filigree-height: $unit * 11 / 240;
+$filigree-gap:    ($menu-top - $menu-depth + ($menu-height / 2) - $menu-plate-padding) * (8 / 28)  / 3; // * (22 / 35);
+$filigree-height: ($menu-top - $menu-depth + ($menu-height / 2) - $menu-plate-padding) * (20 / 28) / 3; // * (22 / 35);
+$filigree-left:   $menu-select-left - $menu-plate-padding;
+
+// color theme
+$side-grey: #AFA9B5;
+$base-grey: #D8D7DC;
+$face-grey: #464646;
+$dark-grey: #212121;
+$fili-grey: #93948F;
+
+$side-red: #982D29;
+$base-red: #CE4A43;
+$game-sky: #6F7CB1;
+
+#gamepad * {
+	position: absolute;
+}
+
+.cord {
+	// set location first
+	left: $cord-left + $gamepad-body-left;
+	// set dimensions next
+	width: $cord-radius;
+	height: $cord-height;
+	// set colors
+	background-color: $dark-grey;
+}
+
+.gamepad-body {
+	// set location first
+	left: $gamepad-body-left;
+	top: $gamepad-body-top;
+	// set dimensions next
+	width: $gamepad-body-width;
+	height: $gamepad-body-height;
+	// set radius items
+	border-radius: $unit / 72;
+	// set colors
+	background-color: $base-grey;
+	// this one has children
+	position: absolute;
+}
+
+.gamepad-body.depth {
+	// set dimensions next
+	height: $gamepad-body-height + $gamepad-body-depth;
+	// set colors
+	background-color: $side-grey;
+}
+
+.gamepad-face {
+	// set location first
+	left: $gamepad-face-left;
+	top: $gamepad-face-top;
+	// set dimensions next
+	width: $gamepad-body-width - (2 * $gamepad-face-left);
+	height: $gamepad-body-height - ($gamepad-face-left + $gamepad-face-top);
+	// set radius items
+	border-radius: $unit / 72;
+	// set colors
+	background-color: $face-grey;
+}
+
+.button-group:active {
+	.button {
+		// set location first
+		top: $button-top - $button-depth + $button-depth-active;
+	}
+	.button.depth {
+		//set location first
+		top: $button-top - $button-depth + $button-depth-active + ($button-height / 2);
+		// set dimensions next
+		height: $button-depth - $button-depth-active;
+	}
+	.button.base {
+		//set location first
+		top: $button-top;
+	}
+}
+
+.button {
+	// set location first
+	top: $button-top - $button-depth;
+	// set dimensions next
+	width: $button-width;
+	height: $button-height;
+	// set border items
+	border-radius: 50%;
+	// set colors
+	background-color: $base-red;
+}
+
+.button.a {
+	// set location first
+	left: $button-a-left;
+}
+
+.button.b {
+	// set location first
+	left: $button-b-left;
+}
+
+.button.depth {
+	//set location first
+	top: $button-top - $button-depth + ($button-height / 2);
+	// set dimensions next
+	height: $button-depth;
+	// set border items
+	border-radius: 0;
+	// set colors
+	background-color: $side-red;
+}
+
+.button.base {
+	//set location first
+	top: $button-top;
+	// set colors
+	background-color: $side-red;
+}
+
+.button-plate {
+	// set location first
+	top: $button-top - $button-plate-padding;
+	// set dimensions next
+	width: $button-width + (2 * $button-plate-padding);
+	height: $button-height + (2 * $button-plate-padding);
+	// set border items
+	border-radius: $unit / 144;
+	// set colors
+	background-color: $base-grey;
+}
+
+.button-plate.a {
+	// set location first
+	left: $button-a-left - $button-plate-padding;
+}
+
+.button-plate.b {
+	// set location first
+	left: $button-b-left - $button-plate-padding;
+}
+
+.menu-group:active {
+	.menu {
+		// set location first
+		top: $menu-top - $menu-depth + $menu-depth-active;
+	}
+	.menu.depth {
+		//set location first
+		top: $menu-top - $menu-depth + $menu-depth-active + ($menu-height / 2);
+		// set dimensions next
+		height: $menu-depth - $menu-depth-active;
+	}
+	.menu.base {
+		//set location first
+		top: $menu-top;
+	}
+}
+
+.menu {
+	// set location first
+	top: $menu-top - $menu-depth;
+	// set dimensions next
+	width: $menu-width;
+	height: $menu-height;
+	// set border items
+	border-radius: 50vh;
+	// left: $menu-start-left;
+	// set colors
+	background-color: $dark-grey;
+}
+
+.menu.select {
+	// set location first
+	left: $menu-select-left;
+}
+
+.menu.start {
+	// set location first
+	left: $menu-start-left;
+}
+
+.menu.depth {
+	// set location first
+	top: $menu-top - $menu-depth + ($menu-height / 2);
+	// set dimensions next
+	height: $menu-depth;
+	// set border items
+	border-radius: 0;
+	// set colors
+	background-color: black;
+}
+
+.menu.base {
+	//set location first
+	top: $menu-top;
+	// set colors
+	background-color: black;
+}
+
+.menu-plate {
+	// set location first
+	top: $menu-top - $menu-depth + ($menu-height / 2) - $menu-plate-padding;
+	left: $menu-select-left - $menu-plate-padding;
+	// set dimensions next
+	height: ($menu-plate-padding * 2) + $menu-height - $unit / 36;
+	width:  ($menu-plate-padding * 2) + $menu-width + $menu-start-left - $menu-select-left - $unit / 36;
+	// set border items
+	border-radius: $unit / 144;
+	border-width: $unit / 72;
+	border-color: $base-grey;
+	border-style: ridge;
+	// set colors
+	background-color: $base-grey;
+}
+
+.dpad {
+	// set dimensions next
+	width: $dpad-width;
+	height: $dpad-height;
+	// set radius items
+	border-radius: $unit / 144;
+	// set colors
+	background-color: $dark-grey;
+}
+
+.dpad.vert {
+	// set location first
+	left: $dpad-left + ($dpad-width - $dpad-height) / 2;
+	top: $dpad-top - $dpad-depth;
+	// set dimensions next
+	width: $dpad-height;
+	height: $dpad-width;
+}
+
+.dpad.hori {
+	// set location first
+	left: $dpad-left;
+	top: $dpad-top - $dpad-depth + ($dpad-width  - $dpad-height) / 2;
+	// set dimensions next
+	width: $dpad-width;
+	height: $dpad-height;
+}
+
+.dpad.depth {
+	// set color
+	background-color: black;
+}
+
+.dpad.vert.depth {
+	// set dimensions next
+	height: $dpad-width + $dpad-depth;
+}
+
+.dpad.hori.depth {
+	// set dimensions next
+	height: $dpad-height + $dpad-depth;
+}
+
+.filigree {
+	// set location first
+	left: $menu-select-left - $menu-plate-padding;
+	// set dimensions next
+	width:  ($menu-plate-padding * 2) + $menu-width + $menu-start-left - $menu-select-left;
+	height: $filigree-height;
+	// radius items
+	border-radius: $unit / 72;
+	// set colors
+	background-color: $fili-grey;
+}
+
+.filigree.list-1 {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	top: 0;
+}
+
+.filigree.list-2 {
+	top: ($filigree-height + $filigree-gap) * 1;
+}
+
+.filigree.list-3 {
+	top: ($filigree-height + $filigree-gap) * 2;
+}
+
+.filigree.list-4 {
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	top: ($filigree-height + $filigree-gap) * 3
+	   + ($filigree-gap)
+		 + ( ($menu-plate-padding * 2) + $menu-height );
+	height: $filigree-height * 14 / 25;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0;
+	background: $game-sky
+}

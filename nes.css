@@ -1,259 +1,233 @@
-@import url('https://fonts.googleapis.com/css?family=Days+One&display=swap');
+/*
+MULTIPLIER: 3
 
-body {
-	padding: 5%;
-	background: cornflowerblue;
-}
+multiplier         | 3
+controller width   | 1440 | 1/1
+controller height  | 600  | 5/12
+dpad width         | 96   | 1/15
+dpad height        | 555  | 7/18
+dpad left          | 72   | 1/20
+dpad top           | 40   | 1/12
 
-img {
-	margin-top: -3%;
-	margin-left: 65%;
-	width: 180px;
-}
 
-#container * {
-	position: absolute;
-}
-
-.controller {
-	margin-top: 140px;
-	width: 1200px;
-	height: 500px;
-	background: lightgrey;
-	border-radius: 10px;
-}
-
-.bottom {
-	margin-top: 620px; 
-	width: 1200px;
-	height: 80px;
-	background: darkgrey;
-	border-radius: 10px;
+dpad-left: 24     -- 1/60
+dpad-top: 40      -- 1/36
+dpad-base/outline -- 1/360 width
+menu-width: 111   -- 7/90 width
+menu-height: 42   -- 7/240 width
+button-width: 120 --  1/12 width
+cord-radius: 16 -- 1/90 width
+cord-left: -- 1/12 width
+*/
+@import url("https://fonts.googleapis.com/css?family=Days+One&display=swap");
+#gamepad * {
+  position: absolute;
 }
 
 .cord {
-	margin-top: -200px;
-	margin-left: 300px;
-	width: 36px;
-	height: 340px;
-	background: #222;
+  left: 30.8333333333vw;
+  width: 3.3333333333vw;
+  height: 10vh;
+  background-color: #212121;
 }
 
-.face {
-	margin-left: 20px;
-	margin-top: 180px;
-	width: 1160px;
-	height: 440px;
-	background: #505050;
-	border-radius: 20px;
+.gamepad-body {
+  left: 10vw;
+  top: 10vh;
+  width: 80vw;
+  height: 33.3333333333vw;
+  border-radius: 1.1111111111vw;
+  background-color: #D8D7DC;
+  position: absolute;
 }
 
-.inlay.dpad.wide {
-	margin-left: calc(20px + 100px - 40px);
-	margin-top: calc(460px - 100px + 80px - 40px);
-	width: 240px;
-	height: 80px;
-	background: lightgrey;
-	border-radius: 10px;
+.gamepad-body.depth {
+  height: 38.6666666667vw;
+  background-color: #AFA9B5;
 }
 
-.inlay.dpad.tall {
-	margin-left: calc(20px + 100px + 80px - 40px);
-	margin-top: calc(460px - 100px - 40px);
-	width: 80px;
-	height: 240px;
-	background: lightgrey;
-	border-radius: 10px;
+.gamepad-face {
+  left: 2.5vw;
+  top: 5.3333333333vw;
+  width: 75vw;
+  height: 25.5vw;
+  border-radius: 1.1111111111vw;
+  background-color: #464646;
 }
 
-.button.dpad.wide {
-	margin-left: calc(20px + 100px + 5px - 40px);
-	margin-top: calc(460px - 90px + 75px - 40px);
-	width: 230px;
-	height: 70px;
-	background: #222;
-	border-radius: 2.5px;
+.button-group:active .button {
+  top: 14.6vw;
+}
+.button-group:active .button.depth {
+  top: 18.1555555556vw;
+  height: 0.4vw;
+}
+.button-group:active .button.base {
+  top: 15vw;
 }
 
-.button.dpad.tall {
-	margin-left: calc(20px + 110px + 75px - 40px);
-	margin-top: calc(460px - 100px + 5px - 40px);
-	width: 70px;
-	height: 230px;
-	background: #222;
-	border-radius: 2.5px;
+.button {
+  top: 13.4vw;
+  width: 7.1111111111vw;
+  height: 7.1111111111vw;
+  border-radius: 50%;
+  background-color: #CE4A43;
 }
 
-.flourish.a {
-	margin-left: 380px;
-	margin-top: calc(180px + 10px);
-	width: 360px;
-	height: 70px;
-	background: #908888;
-	border-radius: 20px;
+.button.a {
+  left: 60vw;
 }
 
-.flourish.b {
-	margin-left: 380px;
-	margin-top: calc(180px + 90px);
-	width: 360px;
-	height: 70px;
-	background: #908888;
-	border-radius: 20px;
+.button.b {
+  left: 50vw;
 }
 
-.flourish.c {
-	margin-left: 380px;
-	margin-top: calc(180px + 170px);
-	width: 360px;
-	height: 70px;
-	background: #908888;
-	border-radius: 20px;
+.button.depth {
+  top: 16.9555555556vw;
+  height: 1.6vw;
+  border-radius: 0;
+  background-color: #982D29;
 }
 
-.flourish.d {
-	margin-left: 380px;
-	margin-top: calc(180px + 360px);
-	width: 360px;
-	height: 70px;
-	background: #908888;
-	border-radius: 20px;
+.button.base {
+  top: 15vw;
+  background-color: #982D29;
 }
 
-.inlay.menu {
-	margin-left: 390px;
-	margin-top: calc(180px + 250px);
-	width: 340px;
-	height: 100px;
-	background: lightgrey;
-	border-radius: 5px;
+.button-plate {
+  top: 14.375vw;
+  width: 8.3611111111vw;
+  height: 8.3611111111vw;
+  border-radius: 0.5555555556vw;
+  background-color: #D8D7DC;
 }
 
-.logo {
-	color: firebrick;
+.button-plate.a {
+  left: 59.375vw;
 }
 
-.inlay.circle {
-	margin-top: calc(190px + 250px - 20px);
-	width: 120px;
-	height: 120px;
-	background: lightgrey;
-	border-radius: 5px;
+.button-plate.b {
+  left: 49.375vw;
 }
 
-.inlay.circle.a {
-	margin-left: 810px;
+.menu-group:active .menu {
+  top: 17.1vw;
+}
+.menu-group:active .menu.depth {
+  top: 18.35vw;
+  height: 0.4vw;
+}
+.menu-group:active .menu.base {
+  top: 17.5vw;
 }
 
-.inlay.circle.b {
-	margin-left: 960px;
+.menu {
+  top: 15.9vw;
+  width: 6.6666666667vw;
+  height: 2.5vw;
+  border-radius: 50vh;
+  background-color: #212121;
 }
 
-
-.button.circle.base {
-	margin-top: calc(190px + 250px - 15px);
-	width: 110px;
-	height: 110px;
-	background: darkred;
-	border-radius: 50%;
+.menu.select {
+  left: 26.6666666667vw;
 }
 
-.button.circle.base.a,
-.button.circle.shaft.a,
-.button.circle.face.a {
-	margin-left: 815px;
+.menu.start {
+  left: 36.6666666667vw;
 }
 
-.button.circle.base.b,
-.button.circle.shaft.b,
-.button.circle.face.b {
-	margin-left: 965px;
+.menu.depth {
+  top: 17.15vw;
+  height: 1.6vw;
+  border-radius: 0;
+  background-color: black;
 }
 
-.button.circle.shaft {
-	margin-top: calc(190px + 250px - 15px + 30px);
-	width: 110px;
-	height: 25px;
-	background: darkred;
+.menu.base {
+  top: 17.5vw;
+  background-color: black;
 }
 
-.button.circle.face {
-	margin-top: calc(190px + 250px - 15px - 25px);
-	width: 110px;
-	height: 110px;
-	background: firebrick;
-	border-radius: 50%;
+.menu-plate {
+  top: 14.65vw;
+  left: 24.1666666667vw;
+  height: 5.2777777778vw;
+  width: 19.4444444444vw;
+  border-radius: 0.5555555556vw;
+  border-width: 1.1111111111vw;
+  border-color: #D8D7DC;
+  border-style: ridge;
+  background-color: #D8D7DC;
 }
 
-.button.circle.parent > * {
-	transition: 100ms;
+.dpad {
+  width: 13.3333333333vw;
+  height: 4.4444444444vw;
+  border-radius: 0.5555555556vw;
+  background-color: #212121;
 }
 
-.button.circle.parent.a:active > .shaft {
-	margin-top: calc(190px + 250px - 15px + 30px + 20px);
-	height: calc(25px - 20px);
+.dpad.vert {
+  left: 8.8888888889vw;
+  top: 6.4vw;
+  width: 4.4444444444vw;
+  height: 13.3333333333vw;
 }
 
-.button.circle.parent.a:active > .face {
-	margin-top: calc(190px + 250px - 15px - 25px + 20px);
+.dpad.hori {
+  left: 4.4444444444vw;
+  top: 10.8444444444vw;
+  width: 13.3333333333vw;
+  height: 4.4444444444vw;
 }
 
-.button.circle.parent.b:active > .shaft {
-	margin-top: calc(190px + 250px - 15px + 30px + 20px);
-	height: calc(25px - 20px);
+.dpad.depth {
+  background-color: black;
 }
 
-.button.circle.parent.b:active > .face {
-	margin-top: calc(190px + 250px - 15px - 25px + 20px);
+.dpad.vert.depth {
+  height: 14.9333333333vw;
 }
 
-.text {
-	font-size: 42px;
-	color: firebrick;
-	font-family: 'Days One', sans-serif;
+.dpad.hori.depth {
+  height: 6.0444444444vw;
 }
 
-.button.text {
-	margin-top: 120px;
+.filigree {
+  left: 24.1666666667vw;
+  width: 21.6666666667vw;
+  height: 3.4880952381vw;
+  border-radius: 1.1111111111vw;
+  background-color: #93948F;
 }
 
-.menu.text {
-	margin-top: calc(180px + 170px + 15px);
-	margin-left: 390px;
-	font-size: 36px;
+.filigree.list-1 {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  top: 0;
 }
 
-.menu.text.start {
-	margin-left: 390px;
-	text-align: left;
+.filigree.list-2 {
+  top: 4.8833333333vw;
 }
 
-.menu.text.select {
-	margin-left: calc(390px + 175px);
-	text-align: right;
+.filigree.list-3 {
+  top: 9.7666666667vw;
 }
 
-.button.squish {
-	margin-top: calc(190px + 250px + 25px);
-	width: 110px;
-	height: 30px;
-	background: #222;
-	border-radius: 15px;
+.filigree.list-4 {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  top: 23.5452380952vw;
+  height: 1.9533333333vw;
 }
 
-.button.squish.start {
-	margin-left: calc(420px);
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background: #6F7CB1;
 }
 
-.button.squish.select {
-	margin-left: calc(420px + 170px);
-}
-
-.logo.text {
-	margin-top: 240px;
-	margin-left: 840px;
-}
-
-small {
-	font-size: 26px;
-}
+/*# sourceMappingURL=nes.css.map */
